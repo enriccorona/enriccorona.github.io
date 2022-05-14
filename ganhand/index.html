@@ -1,0 +1,117 @@
+
+<html>
+<head>
+
+<title>Enric Corona</title>
+<!--<link href="stylesheet.css" rel="stylesheet" type="text/css">
+-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script language="JavaScript">
+  function ShowHide(divId) {
+    $(divId).slideToggle(200);
+  }
+</script>
+</head>
+
+<body data-gr-c-s-loaded="true">
+
+<div class="container">
+
+<br />
+<br />
+<h1> GanHand: Predicting Human Grasp Affordances in Multi-Object Scenes </h1>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Enric Corona, <a href="https://www.albertpumarola.com/">Albert Pumarola</a>, <a href="http://www.iri.upc.edu/people/galenya/">Guillem Aleny&agrave;</a>, <a href="http://www.iri.upc.edu/people/fmoreno/">Francesc Moreno-Noguer</a>, <a href="https://europe.naverlabs.com/people_user/gregory-rogez/">Gr&eacute;gory Rogez</a></b></p>
+<br />
+
+<!--<img src="ganhand_teaser.png" style="max-width:100%;">
+-->
+<img src="gif_video1.gif" style="max-width:33%;">
+<img src="gif_video2.gif" style="max-width:33%;">
+<img src="gif_video3.gif" style="max-width:33%;">
+
+
+<br />
+<br />
+
+
+<h3>Abstract</h3>
+
+<br />
+
+
+<p>
+The rise of deep learning has brought remarkable progress in estimating hand geometry from  images where the hands are part of the scene. This paper focuses on a new problem not explored so far, consisting in predicting how a human would grasp one or several objects, given a single RGB image of these objects. This is a problem with enormous potential in \eg augmented reality, robotics or prosthetic design. In order to predict feasible grasps, we need to understand  the semantic content of the image, its  geometric structure and all potential interactions with a hand physical model.
+</p>
+
+<p>To this end, we introduce a generative  model that jointly reasons in all these levels and 1) regresses the 3D shape and pose of the objects in the scene; 2) estimates the grasp types; and 3) refines the  51-DoF of a 3D hand  model  that minimize a graspability  loss.  To train this model we build the YCB-Affordance dataset, that contains more than 133k images  of  21 objects in the YCB-Video dataset. We have  annotated these images with more than 28M plausible 3D human grasps according to a 33-class taxonomy. A thorough evaluation  in  synthetic and real images shows that our model can robustly predict realistic grasps, even in cluttered scenes with multiple objects in close contact.  
+</p>
+
+
+<br />
+<br />
+
+<h3>YCB-Affordance Dataset</h3>
+
+<br />
+
+We release a large-scale dataset of manually annotated grasps on the 58 objects of the YCB Benchmark Set. This contain grasps such as those in the following image, which are not found by Graspit Simulator or any other automatic pipeline. For each grasp, we annotate tha hand position, the hand pose and the grasp type according to the grasp taxonomy of Feix <i>et al</i>. We transfer these grasps to the 92 Video sequences from the YCB-Video dataset, and remove those grasps that are not feasible, due to interpenetrations with other objects or with the table. The dataset contains 133.936 frames, with more than 28M of realistic grasps.
+<img src="ycb_affordance_dataset.png" style="max-width:100%;">
+
+<h3>GanHand</h3>
+
+<br />
+
+GanHand takes a single RGB image of one or several objects and predicts how a human would grasp these objects naturally. Our architecture consists of three stages.  First, the objects' shapes and locations are estimated in the scene using an object 6D pose estimator or a reconstruction network (red). The predicted shape is then projected onto the image plane to obtaina segmentation mask that is concatenated with the input image and fed to the second sub-network for grasp prediction (blue). Finally, werefine the hand parameters and obtain hand final shapes and poses using a differentiable parametric model MANO (yellow). The model is trained using adversarial, interpenetration, classification and optimization losses, indicated in bold.
+<img src="architecture_v10.png" style="max-width:100%;">
+
+<h3>Results</h3>
+
+<br />
+
+<img src="ganhand_results.png" style="max-width:100%;">
+
+<h3>Publication</h3>
+
+<br />
+<div class="row"> <div class="col-md-3"><!--<img style="width:200px;height:120px;" alt src="https://www.albertpumarola.com/images/2019/ContextPred/context_pred_small.gif" style="width:80%; margin:10 px">--><img style="width:200px;height:120px;" alt src="../imgs/ganhand.png" style="width:80%; margin:10 px"> </div><div class="col-md-9"><h4>GanHand: Predicting Human Grasp Affordances in Multi-Object Scenes</h4><h5>E. Corona, A. Pumarola, G. Aleny&agrave;, F. Moreno-Noguer; G. Rogez</h5><h5>in <i>Conference on Computer Vision and Pattern Recognition (CVPR), 2020 </i><b>(Oral)</b></h5><h5>
+<a href="http://www.iri.upc.edu/people/ecorona/ganhand/" >Project Page</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://openaccess.thecvf.com/content_CVPR_2020/papers/Corona_GanHand_Predicting_Human_Grasp_Affordances_in_Multi-Object_Scenes_CVPR_2020_paper.pdf" >Paper</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://github.com/enriccorona/YCB_Affordance" >Dataset</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://github.com/enriccorona/GanHand" >Code</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a onclick="javascript:ShowHide('#corona2019context')" href="javascript:;">Bibtex</a></h5>
+<pre class='citation' id='corona2019context' style="DISPLAY: none">
+@inproceedings{corona2020ganhand,
+    Author = {Enric Corona and Albert Pumarola and Guillem Aleny{\`a} and Moreno-Noguer, Francesc and Rogez, Gr{\'e}gory},
+    Title = {GanHand: Predicting Human Grasp Affordances in Multi-Object Scenes},
+    Year = {2020},
+    booktitle = {CVPR},
+}
+</pre>
+</div></div>
+
+<h3>Citation</h3>
+<pre class='citation'>
+@inproceedings{corona2020ganhand,
+    Author = {Enric Corona and Albert Pumarola and Guillem Aleny{\`a} and Moreno-Noguer, Francesc and Rogez, Gr{\'e}gory},
+    Title = {GanHand: Predicting Human Grasp Affordances in Multi-Object Scenes},
+    Year = {2020},
+    booktitle = {CVPR},
+}
+</pre>
+
+</div>
+</div>
+</body>
+</html>
+

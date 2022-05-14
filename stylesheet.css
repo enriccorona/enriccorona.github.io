@@ -1,0 +1,174 @@
+
+.content {
+	height: auto;
+	width:70%;
+//	margin-top: 60px;
+//	float:left;
+//	margin-left:40px;
+	position:absolute;
+	left:220px;
+	top:45px;
+
+}
+
+.info {
+	background:#EFEFEF;
+	height:auto;
+/*	width:750px;*/
+	width:100%;
+	font-size:100%;
+	padding:20px;
+	text-align: justify;
+	text-justify: inter-word;
+
+	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+
+/* Curved border: */
+    	border-collapse:separate;
+    	border-radius:6px;
+    	-moz-border-radius:6px;
+}
+
+.menu {
+	height: auto;
+	width: auto;
+	float:left;
+	margin-left:10px;
+	margin-top:45px;
+	padding:10px;
+        background:#EFEFEF;
+        font-size:110%;
+
+        font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+
+// Curved border:
+        border-collapse:separate;
+        border-radius:6px;
+        -moz-border-radius:6px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.title_page {
+	font-size:120%;	
+        font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+        margin-left:30px;
+}
+
+.circle {
+	width: 12px;
+	height: 12px;
+	background: black;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.timeline-top {
+	float:left;
+	width:175px;
+	height:60px;
+	padding:5px;
+	margin-top:21px;
+}
+
+.timeline-bottom {
+	float:left;
+        width:165px;
+        height:60px;
+	padding:5px;
+	margin-top:59px;
+}
+
+.skills {
+	float:left;
+}
+
+//.container p {
+//	text-decoration: underline;
+//}
+
+.container {
+	vertical-align: top;
+	display:inline-block;
+}
+
+.container img,video {
+    display: block;
+    margin: 0 auto;
+}
+
+.proj {
+	float:left;
+	width:300px;
+	height:250px;
+	margin:20px;
+}
+
+.menu_links a {
+	padding: 8 95 8 40;
+	margin: -8 -95 -8 -20;
+}
+
+.menu_links a:link    {color:#000;}  /* unvisited link  */
+.menu_links a:visited {color:#000;}  /* visited link    */
+.menu_links a:hover   {color:#000; background-color:white;}  /* mouse over link */
+
+.menu_links .active {color:#000; background-color:white;}
+
+.proj a {color:#000;}
+
+.arrow{
+	font-size:250%;
+	margin-top:-14px;
+	margin-bottom:-10px;
+}
+
+
+
+
+
+.form {
+    margin:0;
+}
+
+.form li {
+    list-style:none;
+}
+
+.hide {
+    display:none;
+}
+
+.rating input[type="radio"] {
+    position:absolute;
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+    -khtml-opacity:0;
+    opacity:0;
+    cursor:pointer;
+    width:17px;
+}
+
+.rating span {
+    width:24px;
+    height:16px;
+    line-height:16px;
+    padding:1px 22px 1px 0; /* 1px FireFox fix */
+    background:url(stars.png) no-repeat -22px 0;
+}
+
+.rating input[type="radio"]:checked + span {
+    background-position:-22px 0;
+}
+
+.rating input[type="radio"]:checked + span ~ span {
+    background-position:0 0;
+}
+
+
+

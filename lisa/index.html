@@ -1,0 +1,231 @@
+
+<html>
+<head>
+
+<title>Enric Corona</title>
+<!--<link href="stylesheet.css" rel="stylesheet" type="text/css">
+-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script language="JavaScript">
+  function ShowHide(divId) {
+    $(divId).slideToggle(200);
+  }
+</script>
+</head>
+
+<body data-gr-c-s-loaded="true">
+
+<div class="container">
+
+<br />
+<br />
+<h1 style="margin-left:-20px; margin-right:-20px;"> LISA: Learning Implicit Shape and Appearance of Hands </h1>
+<!--<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Enric Corona,  -->
+<p style="text-align:center; font-size: 18px">
+<a href="http://www.iri.upc.edu/people/ecorona/">Enric Corona</a>, &nbsp;
+<a href="https://cmp.felk.cvut.cz/~hodanto2/">Tomas Hodan</a>, &nbsp;
+<a href="https://minhpvo.github.io/">Minh Vo</a>, &nbsp;
+<a href="http://www.iri.upc.edu/people/fmoreno/">Francesc Moreno-Noguer</a>,</p><p style="text-align:center; font-size:18px; margin-top:-6px">
+<a href="https://scholar.google.com/citations?user=h-CpQGgAAAAJ&hl=en">Chris Sweeney</a>, &nbsp;
+<a href="https://scholar.google.com/citations?user=MhowvPkAAAAJ&hl=en">Richard Newcombe</a>, &nbsp;
+<a href="https://vision.in.tum.de/members/lingni">Lingni Ma</a>
+</b></p>
+<h2 align="center">CVPR 2022</h2>
+
+<p style="text-align:center; font-size: 18px">
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="http://www.iri.upc.edu/people/ecorona/lisa/paper.pdf">
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
+    Paper</a> &nbsp; &nbsp;
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="http://www.iri.upc.edu/people/ecorona/lisa/supplementary.pdf">
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
+    Suppl.</a> &nbsp; &nbsp;
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="https://www.youtube.com/watch?v=bra6gN81cjo">  
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">play_circle_filled</span> &nbsp;
+    Video</a>
+<!-- https://materializecss.com/icons.html -->
+
+<br />
+<br />
+
+<img src="teaser.png" style="max-width:100%;">
+
+
+<br />
+<br />
+
+
+<h3>Abstract</h3>
+
+<br />
+
+
+<p>
+This paper proposes a do-it-all neural model of human hands, named LISA. The model can capture accurate hand shape and appearance, generalize to arbitrary hand subjects, provide dense surface correspondences, be reconstructed from images in the wild, and can be easily animated. We train LISA by minimizing the shape and appearance losses on a large set of multi-view RGB image sequences annotated with coarse 3D poses of the hand skeleton. For a 3D point in the local hand coordinates, our model predicts the color and the signed distance with respect to each hand bone independently, and then combines the per bone predictions using the predicted skinning weights. The shape, color, and pose representations are disentangled by design, enabling fine control of the selected hand parameters. We experimentally demonstrate that LISA can accurately reconstruct a dynamic hand from monocular or multi-view sequences, achieving a noticeably higher quality of reconstructed hand shapes compared to baseline approaches.
+</p>
+
+
+<br />
+<div align="center;">
+<iframe src="https://youtube.com/embed/bra6gN81cjo?autoplay=1&mute=1" style="display:block;width:100%;height:33vw;">
+</iframe>
+</div>
+
+<br />
+<h3>How does LISA work?</h3>
+
+<br />
+
+<p>
+LISA is trained by minimizing shape and appearance losses from a dataset of multi-view RGB image sequences. The sequences are assumed annotated with coarse 3D poses of the hand skeleton that are refined during training. The training sequences show hands of multiple people and are used to learn disentangled representations of pose, shape and color. 
+</p><p>
+LISA learns to approximate the hand by a collection of rigid parts defined by the hand bones. Each 3D query point is transformed to the local coordinate systems of the bones associated with independent neural networks, where two independent MLPs predict the signed distance to the hand surface and the color.
+The per-bone predictions are finally combined using skinning weights predicted by an additional network.
+</p>
+<p>
+At inference, we can sample shape and color representations and generate hands with different hand colors and shapes, while controlling their pose. We also use this model for the task of 3D reconstruction given input 3D point-clouds or single and multi-view images.
+</p>
+
+<br />
+
+<img src="lisa_diagram.png" style="max-width:100%;">
+
+<!--<h3>Applications</h3>-->
+<br />
+<br />
+<br />
+
+<h3>Applications</h3>
+
+<img src="hand_scans.png" style="max-width:40%;float:right;margin-left:20px;">
+
+<p>
+Even though LISA is first trained as a generative model that can represent and generate different hand poses, shapes and colors in both 2D and 3D domains, we show that it can be used straight away for the tasks of 
+3D reconstruction of hands. We show its flexibility by reconstructing hands from input point clouds, single images or multi-view images. In all tasks it outperforms previous works and show that it can generalize to new hand poses and shapes.
+</p>
+
+<br />
+<br />
+
+<h4>3D Hand reconstruction of 3D scans</h4>
+
+<p>
+We first test LISA in the task of hand reconstruction from point clouds, where we follow a very similar pipeline as the one used to learn the model, by minimizing SDF, eikonal and regularization losses.
+The input point clouds might be noisy and have missing parts, and our goal is to obtain faithful registrations of the hands presented.
+We compare against MANO, the main parametric hand model which is widely used for reconstruction of hands. We also compare against other implicit representations that we trained specifically for hands in the same dataset than LISA, including VolSDF, NASA and NARF.
+The results show that LISA-im consistently outperforms the other methods when only images are used for training (LISA-im). Adding a geometric prior (LISA-full) yields a significant boost in performance and provides more compelling visual results.
+<!-- While MANO proves very robust, its low dimensionality limits the capacity to fit the hand accurately. -->
+Quantitative results are also available in the paper.
+</p>
+
+<br />
+<br />
+
+<h4>3D Reconstruction from images</h4>
+<p>
+When tackling single or multi-view images as input, we fit LISA by minimizing the projection error and other regularization losses. Assuming we have rough 2D hand joint estimations we guide the optimization to have a plausible hand skeleton and color. The paper contains quantitative evaluations where we evaluate the difference between one and multiple views, and show that LISA outperforms previous approaches. 
+</p>
+<p>
+We here show single-view 3D reconstruction results on the InterHand2.6M Dataset. The first two rows show ground-truth images and rendered reconstructions, while we show the geometry and skinning weights in the third and fourth rows. While the process only takes one image (top-left for each scene), all renders look realistic and generate plausible hand poses.
+</p>
+<img src="hand_images1.png" style="width:96%;display: block;margin:auto">
+<p>
+We next include a few examples on the FreiHand Dataset, showing the input image, the reconstructed hand projected on the image, and reconstructed geometry and texture in a canonical space.
+</p>
+<img src="hand_images2.png" style="width:96%;display: block;margin:auto">
+
+<!--<img src="results_image.png" style="max-width:100%;">-->
+
+
+<br />
+<br />
+<br />
+
+<h3>Publication</h3>
+
+<br />
+
+<div class="row"> <div class="col-md-3"><!--<img style="width:200px;height:120px;" alt src="https://www.albertpumarola.com/images/2019/ContextPred/context_pred_small.gif" style="width:80%; margin:10 px">--><img style="width:200px;height:120px;" alt src="lisa_gif.gif" style="width:80%; margin:10 px"> </div><div class="col-md-9"><h4>LISA: Learning Implicit Shape and Appearance of Hands</h4><h5>Enric Corona, Tomas Hodan, Minh Vo, Francesc Moreno-Noguer, Chris Sweeney, Richard Newcombe, Lingni Ma</h5><h5>in <i>IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2022 </i></h5><h5>
+<a href="http://www.iri.upc.edu/people/ecorona/lisa/" >Project Page</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.iri.upc.edu/people/ecorona/lisa/paper.pdf" >Paper</a>&nbsp;&nbsp;&nbsp;
+<a href="http://www.iri.upc.edu/people/ecorona/lisa/supplementary.pdf" >Supplementary</a>&nbsp;&nbsp;&nbsp;
+<!--<a href="https://github.com/enriccorona/YCB_Affordance" >Dataset</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://github.com/enriccorona/GanHand" >Code</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+&nbsp;&nbsp;&nbsp;
+<a onclick="javascript:ShowHide('#bibtex')" href="javascript:;">Bibtex</a></h5>
+<pre class='citation' id='bibtex' style="DISPLAY: none">
+@inproceedings{corona2022lisa,
+    Author = {Corona, Enric and Hodan, Tomas and Vo, Minh and Moreno-Noguer, Francesc and Sweeney, Chris and Newcombe, Richard and Ma, Lingni}
+    Title = {LISA: Learning Implicit Shape and Appearance of Hands},
+    Year = {2022},
+    booktitle = {CVPR},
+}
+</pre>
+</div></div>
+
+<br />
+
+<h3>Citation</h3>
+<pre class='citation'>
+@inproceedings{corona2022lisa,
+    Author = {Corona, Enric and Hodan, Tomas and Vo, Minh and Moreno-Noguer, Francesc and Sweeney, Chris and Newcombe, Richard and Ma, Lingni}
+    Title = {LISA: Learning Implicit Shape and Appearance of Hands},
+    Year = {2022},
+    booktitle = {CVPR},
+}
+</pre>
+
+</div>
+</div>
+</body>
+</html>
+

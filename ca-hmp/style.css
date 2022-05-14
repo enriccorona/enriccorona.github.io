@@ -1,0 +1,180 @@
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #333;
+  font-size: 16px;
+}
+h1 {
+  font-size: 40px;
+  color: #555;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 26px;
+  color: #555;
+  font-weight: 300;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 26px;
+  color: #555;
+  font-weight: 300;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 20px;
+  color: #555;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #999;
+
+}
+
+
+h4 {
+  font-size: 18px;
+  color: #555;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 20px;
+  padding: 0;
+}
+
+h5 {
+  font-size: 18px;
+  color: #555;
+  font-weight: 300;
+  text-align: left;
+  margin-left: 20px;
+  padding: 0;
+}
+
+p {
+  margin: 20px;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: left;
+}
+
+.citation {
+  text-align: left;
+}
+
+.link_title{
+  color: #555;
+}
+
+.about {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+.authors {
+  color: #222;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0px;
+}
+
+.icons{
+    float: left;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.venue {
+  color: #222;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0px;
+}
+
+.authors venue {
+  color: #A40;
+  font-size: 24px;
+  /*font-weight: 300;*/
+  text-align: center;
+  margin: 10px;
+  padding: 0;
+  /*margin-bottom: 0px;*/
+}
+/*.venue {
+    color: #A40;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0px;
+}*/
+
+.logoimg {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.container-fluid {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.container {
+  margin-top: 10px;
+  width:60%;
+}
+#footer {
+  margin-bottom: 100px;
+}
+.thumbs {
+  -webkit-box-shadow: 1px 1px 3px #999;
+  -moz-box-shadow: 1px 1px 3px #999;
+  box-shadow: 1px 1px 3px #999;
+  margin-bottom: 20px;
+}
+/*h2 {
+  font-size: 24px;
+  font-weight: 900;
+  border-bottom: 1px solid #999;
+  margin-bottom: 20px;
+}*/
+
+ul {
+  font-size: 18px;
+  color: #555;
+  font-weight: 300;
+  text-align: left;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+p {
+  text-align:justify;
+  }

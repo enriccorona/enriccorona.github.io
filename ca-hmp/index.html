@@ -1,0 +1,104 @@
+
+<html>
+<head>
+
+<title>Enric Corona</title>
+<!--<link href="stylesheet.css" rel="stylesheet" type="text/css">
+-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script language="JavaScript">
+  function ShowHide(divId) {
+    $(divId).slideToggle(200);
+  }
+</script>
+</head>
+
+<body data-gr-c-s-loaded="true">
+
+<div class="container">
+
+<br />
+<br />
+<h1> Context-Aware Human Motion Prediction </h1>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Enric Corona, <a href="https://www.albertpumarola.com/">Albert Pumarola</a>, <a href="http://www.iri.upc.edu/people/galenya/">Guillem Aleny&agrave;</a>, <a href="http://www.iri.upc.edu/people/fmoreno/">Francesc Moreno-Noguer</a></b></p>
+<br />
+
+<img src="banner.png" style="max-width:100%;">
+
+<br />
+<br />
+
+
+<h3>Abstract</h3>
+
+<p>The problem of predicting human motion given a sequence of past observations is at the core of many applications in robotics and computer vision. Current state-of-the-art  formulate this problem as a sequence-to-sequence task, in which a historical of 3D skeletons feeds a Recurrent Neural Network (RNN) that predicts future movements, typically in the order of 1 to 2 seconds.  However, one aspect that has been obviated so far, is the fact that human motion is inherently driven by interactions with objects and/or other humans in the environment.</p>
+
+<p>In this paper, we explore this scenario using  a novel context-aware  motion prediction architecture. We use a semantic-graph model where the nodes parameterize the human and objects in the scene and the edges their mutual interactions. These interactions are iteratively learned through a graph attention layer, fed with the past observations, which now include both object and human body motions.  Once this semantic graph is learned, we inject it to a standard RNN to predict future movements  of the human/s and object/s. We consider two variants of our architecture, either freezing the contextual interactions in the future of updating them. 
+A thorough evaluation in the <i>Whole-Body Human Motion Database</i> shows that in both cases, our context-aware networks clearly outperform baselines in which the context information is not considered. </p>
+
+<br />
+<br />
+
+<h3>Method</h3>
+
+<p>We use a semantic-graph model where the nodes parameterize the human and objects in the scene and the edges their mutual interactions. These interactions are iteratively learned through a graph attention layer, fed with the past observations, which now include both object and human body motions. Once this semantic graph is learned, we inject it to a standard RNN to predict future movements of the human/sand object/s.</p>
+<br />
+
+<img src="model.png" style="max-width:100%;">
+
+<h3>Results</h3>
+<br />
+<img src="results.png" style="max-width:100%;">
+<p>
+<b>Left:</b> 
+Predicted sample frames of our approaches and the baselines. </p>
+<p><b>Center:</b>
+Detail of the predictions obtained with our approaches, compared with the ground truth. Human and object motion are represented from light blue to dark blue and light green to dark green, respectively. Actions, from top to bottom are: A human supports on a table to kick a box, human leaning on a table, and two people (one of them standing on a ladder) passing an object. </p>
+<p><b>Right:</b>
+Predicted adjacency matrices representing the interactions learned by our model. Note that these relations are directional (e.g. in the last example the ladder highly influences the motion of the Human#1 (50%) but the human has little influence over the ladder (11%). Best viewed in color with zoom </p>
+
+
+<h3>Publication</h3>
+
+<br />
+<div class="row"> <div class="col-md-3"><!--<img style="width:200px;height:120px;" alt src="https://www.albertpumarola.com/images/2019/ContextPred/context_pred_small.gif" style="width:80%; margin:10 px">--><img style="width:200px;height:120px;" alt src="../imgs/CA-HMP.gif" style="width:80%; margin:10 px"> </div><div class="col-md-9"><h4>Context-aware Human Motion Prediction</h4><h5>E. Corona, A. Pumarola, G. Aleny&agrave;, F. Moreno-Noguer</h5><h5>in <i>Conference on Computer Vision and Pattern Recognition (CVPR), 2020</i></h5><h5>
+<a href="http://www.iri.upc.edu/people/ecorona/ca-hmp/" >Project Page</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://arxiv.org/pdf/1904.03419/" >Paper</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.iri.upc.edu/people/ecorona/CAHMP.zip" >Code</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a onclick="javascript:ShowHide('#corona2019context')" href="javascript:;">Bibtex</a></h5>
+<pre class='citation' id='corona2019context' style="DISPLAY: none">
+@inproceedings{corona2020context,
+    Author = {Corona, Enric and Pumarola, Albert  and Aleny{\`a}, Guillem and Moreno-Noguer, Francesc},
+    Title = {Context-aware Human Motion Prediction},
+    Year = {2020},
+    booktitle = {CVPR},
+}
+</pre>
+</div></div>
+
+
+<h3>Citation</h3>
+<pre class='citation'>
+@inproceedings{corona2020context,
+    Author = {Corona, Enric and Pumarola, Albert  and Aleny{\`a}, Guillem and Moreno-Noguer, Francesc},
+    Title = {Context-aware Human Motion Prediction},
+    Year = {2020},
+    booktitle = {CVPR},
+}
+</pre>
+
+</div>
+</div>
+</body>
+</html>
+

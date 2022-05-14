@@ -1,0 +1,223 @@
+
+<html>
+<head>
+
+<title>Enric Corona</title>
+<!--<link href="stylesheet.css" rel="stylesheet" type="text/css">
+-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script language="JavaScript">
+  function ShowHide(divId) {
+    $(divId).slideToggle(200);
+  }
+</script>
+</head>
+
+<body data-gr-c-s-loaded="true">
+
+<div class="container">
+
+<br />
+<br />
+<h1 style="margin-left:-20px; margin-right:-20px;"> Learned Vertex Descent: A New Direction for 3D Human Model Fitting</h1>
+<p style="text-align:center; font-size: 18px">
+<a href="http://www.iri.upc.edu/people/ecorona/">Enric Corona</a>, &nbsp; &nbsp;
+<a href="http://www.iri.upc.edu/people/galenya/">Guillem Aleny&agrave;</a>, &nbsp; &nbsp;
+<a href="http://virtualhumans.mpi-inf.mpg.de/">Gerard Pons-Moll</a>, &nbsp; &nbsp;
+<a href="http://www.iri.upc.edu/people/fmoreno/">Francesc Moreno-Noguer</a>
+</b> </p>
+
+<!--<p style="text-align:center; font-size: 18px">-->
+</b>
+
+<p style="text-align:center; font-size: 18px">
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="https://arxiv.org/abs/2205.06254">
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
+    Paper</a> &nbsp; &nbsp;
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="http://www.iri.upc.edu/people/ecorona/lvd/">
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
+    Project</a> &nbsp; &nbsp;
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="https://www.youtube.com/watch?v=2M7uoYdauJw">  
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">play_circle_filled</span> &nbsp;
+    Video</a>
+<!-- https://materializecss.com/icons.html -->
+</p>
+
+<br />
+
+<img src="lvd_teaser.png" style="max-width:100%;">
+<br />
+
+
+<br />
+<br />
+
+
+<h3>Abstract</h3>
+
+<br />
+
+<p>
+We propose a novel optimization-based paradigm for 3D human model fitting on images and scans. In contrast to existing approaches that directly regress the parameters of a low-dimensional statistical body model (<i>e.g. </i> SMPL) from input images, we train an ensemble of per vertex neural fields network. The network predicts, in a distributed manner, the vertex descent direction towards the ground truth, based on neural features extracted at the current vertex projection.
+</p>
+<p>
+At inference, we employ this network, dubbed LVD, within a gradient-descent optimization pipeline until its convergence, which typically occurs in a fraction of a second even when initializing all vertices into a single point. An exhaustive evaluation demonstrates that our approach is able to capture the underlying body of clothed people with very different body shapes, achieving a significant improvement compared to state-of-the-art. LVD is also applicable to 3D model fitting of humans and hands, for which we show a significant improvement to the SOTA with a much simpler and faster method.
+
+</p>
+
+<br />
+<div align="center;">
+<iframe src="https://youtube.com/embed/2M7uoYdauJw?autoplay=1&mute=1" style="display:block;width:100%;height:33vw;">
+</iframe>
+</div>
+
+<br />
+<br />
+
+<h3>How does LVD work?</h3>
+
+<br />
+<img src="lvd_arch.png" style="max-width:100%;">
+
+<p>
+LVD is a novel framework for estimation of 3D human body where local features drive the direction of vertices iteratively by predicting a per-vertex neural field. At each step, the network takes an input vertex to obtain its corresponding local features, and predict the direction towards its groundtruth position. The surface initialization here follows a T-Posed body, but the proposed approach is very robust to different initializations.
+</p><p>
+The features are formed by representations extracted at different levels of the encoding network, and therefore include both local and global information.
+This approach is flexible and can be based on 3D or 2D features, and we evaluate it on the tasks of SMPL estimation from images or 3D pointclouds, and MANO estimation from 3D pointclouds. 
+</p>
+
+<br />
+<br />
+
+<h3>Applications</h3>
+
+<br />
+<h4>Estimation of SMPL from images:</h4>
+
+<img src="lvd_image1.png" style="width:90%;display: block;margin:auto">
+
+<p>
+We first evaluate LVD on the task of SMPL estimation on images on-the-wild, by giving more importance to the estimation of different shapes. The model is trained on the renderpeople dataset and learns to predict a diverse distribution of SMPL body shapes from a very small set of training, in contrast to previous works in SMPL estimation that were trained on big collections of real images.
+</p><p>
+For each method, we here show the reconstruction in posed and canonical space. While previous works focus on pose estimation, they are prone to generate always an average body shape.
+In contrast, LVD generates a much richer distribution of body shapes as shown in the right-most column.
+</p>
+
+<br />
+<br />
+
+<h4>Estimating SMPL from 3D pointclouds:</h4>
+
+<img src="lvd_image2.png" style="width:60%;display: block;margin:auto">
+<p>
+We next evaluate how we can estimate SMPL and SMPL+D on 3D scans of humans by taking point clouds as input.
+The initial SMPL estimation from LVD is already very competitive against state-of-the-art baselines. By using these predictions as initialization for SMPL/SMPL+D registration without further correspondences, we obtain &sim;28.4% and &sim;37.7% relative improvements with respect to the second-best method in joint and SMPL vertex distances respectively.
+</p>
+
+<br />
+<br />
+
+<h4> Estimating MANO from 3D pointclouds:</h4>
+<!--
+<img src="lvd_image2.png" style="max-width:40%;float:right;margin-left:20px;">-->
+<img src="lvd_image3.png" style="width:90%;display: block;margin:auto">
+
+<p>
+Finally, LVD can be used easily on different parametric models. In this case, we adapt it to MANO only by changing the number of vertices with respect to SMPL, and train it to register MANO from input pointclouds where it also outperforms all baselines.
+</p>
+
+<br />
+<br />
+<br />
+
+<h3>Publication</h3>
+
+<br />
+<br />
+
+<div class="row"> <div class="col-md-3"><img style="margin-left:40px;margin-top:-5px;width:120px;height:144px;" alt src="lvd_gif.gif" style="width:80%; margin:10 px"> </div><div class="col-md-9"><h4>Learned Vertex Descent: A New Direction for 3D Human Model Fitting</h4><h5>Enric Corona, Gerard Pons-Moll, Guillem Aleny&agrave;, Francesc Moreno-Noguer</h5></h5><h5>
+
+<!--<div class="row"> <div class="col-md-3"><img style="width:200px;height:120px;" alt src="https://www.albertpumarola.com/images/2019/ContextPred/context_pred_small.gif" style="width:80%; margin:10 px"><img style="margin-left:40px;width:100px;height:120px;" alt src="lvd_gif.gif" style="width:80%; margin:10 px"> </div><div class="col-md-9"><h4>Learned Vertex Descent: A New Direction for 3D Human Model Fitting</h4><h5>Enric Corona, Gerard Pons-Moll, Guillem Aleny&agrave;, Francesc Moreno-Noguer</h5></h5><h5>-->
+<a href="http://www.iri.upc.edu/people/ecorona/lvd/" >Project Page</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://arxiv.org/abs/2205.06254" >Paper</a>&nbsp;&nbsp;&nbsp;
+<a href="http://www.iri.upc.edu/people/ecorona/lvd/" >Supplementary</a>&nbsp;&nbsp;&nbsp;
+<a href="http://www.iri.upc.edu/people/ecorona/lvd/" >Code</a>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+<a onclick="javascript:ShowHide('#bibtex')" href="javascript:;">Bibtex</a></h5>
+<pre class='citation' id='bibtex' style="DISPLAY: none">
+@inproceedings{corona2022lvd,
+    Author = {Corona, Enric and Pons-Moll, Gerard and Aleny&agrave;, Guillem and Moreno-Noguer, Francesc}
+    Title = {Learned Vertex Descent: A New Direction for 3D Human Model Fitting},
+    Year = {2022},
+    booktitle = {Arxiv},
+}
+</pre>
+</div></div>
+
+<br />
+
+<h3>Citation</h3>
+<pre class='citation'>
+@inproceedings{corona2022lvd,
+    Author = {Corona, Enric and Pons-Moll, Gerard and Aleny&agrave;, Guillem and Moreno-Noguer, Francesc}
+    Title = {Learned Vertex Descent: A New Direction for 3D Human Model Fitting},
+    Year = {2022},
+    booktitle = {Arxiv},
+}
+</pre>
+
+</div>
+</div>
+</body>
+</html>
+

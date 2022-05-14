@@ -1,0 +1,121 @@
+
+<html>
+<head>
+
+<title>Enric Corona</title>
+<!--<link href="stylesheet.css" rel="stylesheet" type="text/css">
+-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script language="JavaScript">
+  function ShowHide(divId) {
+    $(divId).slideToggle(200);
+  }
+</script>
+</head>
+
+<body data-gr-c-s-loaded="true">
+
+<div class="container">
+
+<br />
+<br />
+<h1> SMPLicit: Topology-aware Generative Model for Clothed People </h1>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Enric Corona, <a href="https://www.albertpumarola.com/">Albert Pumarola</a>, <a href="http://www.iri.upc.edu/people/galenya/">Guillem Aleny&agrave;</a>, <a href="http://virtualhumans.mpi-inf.mpg.de/">Gerard Pons-Moll</a>, <a href="http://www.iri.upc.edu/people/fmoreno/">Francesc Moreno-Noguer</a> </b> </p>
+<br />
+
+<img src="teaser.png" style="max-width:100%;">
+
+
+<br />
+<br />
+
+
+<h3>Abstract</h3>
+
+<br />
+
+
+<p>
+In this paper we introduce SMPLicit, a novel  generative model to  jointly represent  body pose, shape and  clothing geometry. In contrast to existing learning-based approaches that require training specific models for each type of garment, SMPLicit can represent in a unified manner different garment topologies (e.g. from sleeveless tops  to hoodies and to open jackets),  while controlling other properties like the garment size or tightness/looseness. We show our model to be applicable to a large variety of garments including T-shirts, hoodies, jackets, shorts, pants, skirts, shoes and even hair.
+The representation flexibility of SMPLicit builds upon an implicit model  conditioned with the  SMPL human body parameters and a learnable  latent space which is semantically interpretable and aligned with the clothing attributes.  
+</p>
+<p>
+The proposed model is fully differentiable, allowing for its use  into  larger end-to-end trainable systems. In the experimental section, we demonstrate SMPLicit can be readily used  for  fitting 3D  scans and for 3D reconstruction in images of dressed people. In both cases we are able to go beyond state of the art, by retrieving complex garment geometries, handling situations with multiple clothing layers and providing a tool for easy outfit editing. To stimulate further research in this direction, we will make our code and model publicly available at <a href="http://www.iri.upc.edu/people/ecorona/smplicit/">http://www.iri.upc.edu/people/ecorona/smplicit/</a>.
+</p>
+
+
+<br />
+<br />
+
+<h3>How does SMPLicit work?</h3>
+
+<br />
+
+<p>
+Architecture of SMPLicit during training (top row) and  inference (bottom row). At the core of SMPLicit lies an implicit-function network C that predicts unsigned distance from the query point p to the cloth iso-surface. The input point is given the underlying SMPL body shape. During training, we jointly train the network C as the latent space representation is created. We include an image encoder f that takes SMPL occlusion maps from ground truth garments and maps them to shape representations (cut), and a second component (style) trained as an auto-decoder.
+</p><p>
+At inference, we run the network C() for a densely sampled 3D space and use Marching Cubes to generate the 3D garment mesh. We finally pose each cloth vertex  using the learnt skinning parameters~\cite{smpl} of the closest SMPL vertex.
+</p>
+
+<img src="architecture.png" style="max-width:100%;">
+
+<h3>Applications</h3>
+
+<br />
+
+<p>
+In this paper, we show the potential of SMPLicit for several computer vision and graphics applications. 
+Mainly, we show how SMPLicit can be fitted to 3D scans of dressed humans, or directly to in-the-wild images for perception tasks, taking advantage of the full differentiability of the predicted unsigned distance field with respect to cloth parameters.
+The following image shows our results when itting SMPLicit in multi-person images from the MPII dataset. SMPLicit can dress SMPL with a variety of clothes. Failure case in bottom-right example, where cloth semantic segmentation mixes shirts and jackets in most upper-bodies, and SMPLicit  wrongly optimizes two similar intersecting jackets.
+</p>
+
+<img src="results_multiperson.png" style="max-width:100%;">
+<!--<img src="results_image.png" style="max-width:100%;">-->
+
+<h3>Publication</h3>
+
+<br />
+<div class="row"> <div class="col-md-3"><!--<img style="width:200px;height:120px;" alt src="https://www.albertpumarola.com/images/2019/ContextPred/context_pred_small.gif" style="width:80%; margin:10 px">--><img style="width:200px;height:120px;" alt src="smplicit_gif1.gif" style="width:80%; margin:10 px"> </div><div class="col-md-9"><h4>SMPLicit: Topology-aware Generative Model for Clothed People</h4><h5>E. Corona, A. Pumarola, G. Aleny&agrave;, G. Pons-Moll, F. Moreno-Noguer</h5><h5>in <i>Conference on Computer Vision and Pattern Recognition (CVPR), 2021 </i></h5><h5>
+<a href="http://www.iri.upc.edu/people/ecorona/smplicit/" >Project Page</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.iri.upc.edu/people/ecorona/smplicit/paper.pdf" >Paper</a>&nbsp;&nbsp;&nbsp;
+<!--<a href="https://github.com/enriccorona/YCB_Affordance" >Dataset</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://github.com/enriccorona/GanHand" >Code</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<a href="https://github.com/enriccorona/SMPLicit" >SMPLicit code</a>&nbsp;&nbsp;&nbsp;
+<a href="https://github.com/enriccorona/SMPLicit/tree/main/fit_SMPLicit" >Fitting SMPLicit</a>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+<a onclick="javascript:ShowHide('#bibtex')" href="javascript:;">Bibtex</a></h5>
+<pre class='citation' id='bibtex' style="DISPLAY: none">
+@inproceedings{corona2021smplicit,
+    Author = {Corona, Enric and Pumarola, Albert and Aleny{\`a}, Guillem and Pons-Moll, Gerard and Moreno-Noguer, Francesc},
+    Title = {SMPLicit: Topology-aware Generative Model for Clothed People},
+    Year = {2021},
+    booktitle = {CVPR},
+}
+</pre>
+</div></div>
+
+<h3>Citation</h3>
+<pre class='citation'>
+@inproceedings{corona2021smplicit,
+    Author = {Corona, Enric and Pumarola, Albert and Aleny{\`a}, Guillem and Pons-Moll, Gerard and Moreno-Noguer, Francesc},
+    Title = {SMPLicit: Topology-aware Generative Model for Clothed People},
+    Year = {2021},
+    booktitle = {CVPR},
+}
+</pre>
+
+</div>
+</div>
+</body>
+</html>
+
