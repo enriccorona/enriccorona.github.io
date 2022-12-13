@@ -161,21 +161,21 @@ Our method recovers albedo and shading given each input image, and is robust to 
 <!--
 <img src="lvd_image2.png" style="max-width:40%;float:right;margin-left:20px;">-->
 
-<img src="s3f_relighting.gif" style="width:70%;display: block;margin:auto">
+<img src="s3f_relighting.gif" style="width:80%;display: block;margin:auto; clip-path: polygon(0% 12%, 100% 12%, 100% 100%, 0% 100%);margin-top:-20px;">
 
 <p>
 After predicting albedo, we relight the 3D reconstructions using different illumination codes. All reconstructions are relighted consistently.
 </p>
 
 <h4> 3D Human Animation:</h4>
-<img src="s3f_animation.gif" style="width:70%;display: block;margin:auto">
+<img src="s3f_animation.gif" style="width:80%;display: block;margin:auto; clip-path: polygon(0% 12%, 100% 12%, 100% 100%, 0% 100%);margin-top:-20px;">
 
 <p>
 The proposed Structured 3D Features are located near the body and inherit the properties of parametric body models, such as skinning weights. Therefore, after pooling per-point representations in the original image, we can pose them to new poses and animate reconstructions, just from a single input image.
 </p>
 
 <h4> 3D Virtual try-on:</h4>
-<img src="s3f_try_on.gif" style="width:70%;display: block;margin:auto">
+<img src="s3f_try_on.gif" style="width:80%;display: block;margin:auto;clip-path: polygon(0% 12%, 100% 12%, 100% 100%, 0% 100%);margin-top:-20px;">
 
 <p>
 Given an image of a target person, we identify S3Fs that project inside upper-body cloth segmentation masks, and replace their feature vectors for those obtained from other subjects. This leads to cloth retargeting and could be useful for 3D virtual try-on applications. Please watch video for more examples and details.
