@@ -164,21 +164,21 @@ Our method recovers albedo and shading given each input image, and is robust to 
 <img src="s3f_relighting.gif" style="width:70%;display: block;margin:auto">
 
 <p>
-After predicting albedo, we relight the 3D reconstructions using different illumination codes.
+After predicting albedo, we relight the 3D reconstructions using different illumination codes. All reconstructions are relighted consistently.
 </p>
 
 <h4> 3D Human Animation:</h4>
 <img src="s3f_animation.gif" style="width:70%;display: block;margin:auto">
 
 <p>
-The proposed Structured 3D Features are located near the body and inherit the properties of parametric body models, such as skinning weights. Therefore, after pooling per-point representations in the original image, we can pose them to any new pose and animate reconstructions.
+The proposed Structured 3D Features are located near the body and inherit the properties of parametric body models, such as skinning weights. Therefore, after pooling per-point representations in the original image, we can pose them to new poses and animate reconstructions, just from a single input image.
 </p>
 
 <h4> 3D Virtual try-on:</h4>
 <img src="s3f_try_on.gif" style="width:70%;display: block;margin:auto">
 
 <p>
-Clothing texture transfer. Given an image of a target person, we identify S3Fs that project inside upper-body cloth segmentation, and replace their feature vectors for those obtained from other subjects. Please watch video for more examples and details.
+Given an image of a target person, we identify S3Fs that project inside upper-body cloth segmentation masks, and replace their feature vectors for those obtained from other subjects. This leads to cloth retargeting and could be useful for 3D virtual try-on applications. Please watch video for more examples and details.
 </p>
 
 <br />
@@ -190,11 +190,12 @@ Clothing texture transfer. Given an image of a target person, we identify S3Fs t
 <br />
 <br />
 
-<div class="row"> <div class="col-md-3"><img style="margin-left:40px;margin-top:-5px;width:120px;height:144px;" alt src="s3f_gif_web.gif" style="width:80%; margin:10 px"> </div><div class="col-md-9"><h4>Structured 3D Features for Reconstructing Relightable and Animatable Avatars</h4><h5>Enric Corona, Mihai Zanfir, Thiemo Alldieck, Eduard Gabriel Bazavan, Andrei Zanfir and Cristian Sminchisescu</h5></h5><h5>
-<a href="https://enriccorona.github.io/s3f/" >Project Page</a>
-&nbsp;&nbsp;&nbsp;
-<a href="https://enriccorona.github.io/s3f/" >Paper</a>&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;
+
+<div class="row"> <div class="col-md-3"><img style="height:120px;" alt src="s3f/s3f_gif_web.gif" style="width:80%"> </div><div class="col-md-9"><h4>Structured 3D Features for Reconstructing Relightable and Animatable Avatars</h4><h5>Enric Corona, Mihai Zanfir, Thiemo Alldieck, Eduard Gabriel Bazavan, Andrei Zanfir and Cristian Sminchisescu</h5><h5>
+<a href="https://enriccorona.github.io/s3f/">Project Page</a>&nbsp;&nbsp;&nbsp;
+<a href="https://enriccorona.github.io/s3f/">Paper</a>&nbsp;&nbsp;&nbsp;
+<a href="https://enriccorona.github.io/s3f/">Supplementary</a>&nbsp;&nbsp;&nbsp;
+<a href="https://www.youtube.com/watch?v=mcZGcQ6L-2s">Video</a>&nbsp;&nbsp;&nbsp;
 <a onclick="javascript:ShowHide('#bibtex')" href="javascript:;">Bibtex</a></h5>
 <pre class='citation' id='bibtex' style="DISPLAY: none">
 @inproceedings{corona2022s3f,
