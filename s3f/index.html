@@ -56,7 +56,7 @@
     font-size: 20px;
     width: 130px;
     font-weight: 600;" 
-    href="https://arxiv.org/abs/2205.06254">
+    href="https://enriccorona.github.io/s3f/">
     <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
     Paper</a> &nbsp; &nbsp;
 <a style="position: relative;
@@ -72,7 +72,7 @@
     font-size: 20px;
     width: 130px;
     font-weight: 600;" 
-    href="https://enriccorona.github.io/S3F/">
+    href="https://enriccorona.github.io/s3f/">
     <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
     Project</a> &nbsp; &nbsp;
 <a style="position: relative;
@@ -94,14 +94,10 @@
 <!-- https://materializecss.com/icons.html -->
 </p>
 
+<h3>Abstract</h3>
+<img src="s3f_gif.gif"  style="width:70%;display: block;margin:auto; outline: 1px solid white;">
+
 <br />
-
-<div align="center;">
-<img src="s3f_gif.gif" style="max-width:80%;">
-</div>
-<br />
-
-
 <br />
 <br />
 
@@ -120,7 +116,7 @@ We show that our S3F model surpasses the previous state-of-the-art on various ta
 
 <br />
 <div align="center;">
-<iframe src="https://youtube.com/embed/mcZGcQ6L-2s?autoplay=1&mute=1" style="display:block;width:100%;height:33vw;">
+<iframe src="https://youtube.com/embed/mcZGcQ6L-2s?autoplay=1&mute=1" style="display:block;width:80%;height:33vw;">
 </iframe>
 </div>
 
@@ -179,21 +175,21 @@ Our method recovers albedo and shading given each input image, and is robust to 
 <!--
 <img src="lvd_image2.png" style="max-width:40%;float:right;margin-left:20px;">-->
 
-<img src="s3f_relighting.gif" style="width:90%;display: block;margin:auto">
+<img src="s3f_relighting.gif" style="width:70%;display: block;margin:auto">
 
 <p>
 After predicting albedo, we relight the 3D reconstructions using different illumination codes.
 </p>
 
 <h4> 3D Human Animation:</h4>
-<img src="s3f_animation.gif" style="width:90%;display: block;margin:auto">
+<img src="s3f_animation.gif" style="width:70%;display: block;margin:auto">
 
 <p>
 The proposed Structured 3D Features are located near the body and inherit the properties of parametric body models, such as skinning weights. Therefore, after pooling per-point representations in the original image, we can pose them to any new pose and animate reconstructions.
 </p>
 
 <h4> 3D Virtual try-on:</h4>
-<img src="s3f_try_on.gif" style="width:90%;display: block;margin:auto">
+<img src="s3f_try_on.gif" style="width:70%;display: block;margin:auto">
 
 <p>
 Clothing texture transfer. Given an image of a target person, we identify S3Fs that project inside upper-body cloth segmentation, and replace their feature vectors for those obtained from other subjects. Please watch video for more examples and details.
@@ -208,12 +204,10 @@ Clothing texture transfer. Given an image of a target person, we identify S3Fs t
 <br />
 <br />
 
-<div class="row"> <div class="col-md-3"><img style="margin-left:40px;margin-top:-5px;width:120px;height:144px;" alt src="s3f_gif.gif" style="width:80%; margin:10 px"> </div><div class="col-md-9"><h4>Structured 3D Features for Reconstructing Relightable and Animatable Avatars</h4><h5>Enric Corona, Mihai Zanfir, Thiemo Alldieck, Eduard Gabriel Bazavan, Andrei Zanfir and Cristian Sminchisescu</h5></h5><h5>
-
-<!--<div class="row"> <div class="col-md-3"><img style="width:200px;height:120px;" alt src="https://www.albertpumarola.com/images/2019/ContextPred/context_pred_small.gif" style="width:80%; margin:10 px"><img style="margin-left:40px;width:100px;height:120px;" alt src="lvd_gif.gif" style="width:80%; margin:10 px"> </div><div class="col-md-9"><h4>Learned Vertex Descent: A New Direction for 3D Human Model Fitting</h4><h5>Enric Corona, Gerard Pons-Moll, Guillem Aleny&agrave;, Francesc Moreno-Noguer</h5></h5><h5>-->
+<div class="row"> <div class="col-md-3"><img style="margin-left:40px;margin-top:-5px;width:120px;height:144px;" alt src="s3f_gif_web.gif" style="width:80%; margin:10 px"> </div><div class="col-md-9"><h4>Structured 3D Features for Reconstructing Relightable and Animatable Avatars</h4><h5>Enric Corona, Mihai Zanfir, Thiemo Alldieck, Eduard Gabriel Bazavan, Andrei Zanfir and Cristian Sminchisescu</h5></h5><h5>
 <a href="https://enriccorona.github.io/s3f/" >Project Page</a>
 &nbsp;&nbsp;&nbsp;
-<a href="https://arxiv.org/" >Paper</a>&nbsp;&nbsp;&nbsp;
+<a href="https://enriccorona.github.io/s3f/" >Paper</a>&nbsp;&nbsp;&nbsp;
 <a href="https://enriccorona.github.io/s3f/" >Code</a>&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;
 <a onclick="javascript:ShowHide('#bibtex')" href="javascript:;">Bibtex</a></h5>
@@ -231,16 +225,14 @@ Clothing texture transfer. Given an image of a target person, we identify S3Fs t
 
 <h3>Citation</h3>
 <pre class='citation'>
-@inproceedings{corona2022lvd,
-    Author = {Corona, Enric and Pons-Moll, Gerard and Aleny&agrave;, Guillem and Moreno-Noguer, Francesc}
-    Title = {Learned Vertex Descent: A New Direction for 3D Human Model Fitting},
+@inproceedings{corona2022s3f,
+    Author = {Corona, Enric and Zanfir, Mihai and Alldieck, Thiemo and Gabriel Bazavan, Eduard and Zanfir, Andrei and Sminchisescu, Cristian}
+    Title = {Structured 3D Features for Reconstructing Relightable and Animatable Avatars},
     Year = {2022},
     booktitle = {Arxiv},
 }
 </pre>
-
-</div>
-</div>
+</div></div>
 </body>
 </html>
 
