@@ -34,7 +34,7 @@
 <a href="https://enriccorona.github.io/">Enric Corona</a>, &nbsp;
 <a href="https://scholar.google.com/citations?user=af68sKkAAAAJ">Mihai Zanfir</a>, &nbsp;
 <a href="https://research.google/people/107250/">Thiemo Alldieck</a>,
-</p><p style="text-align:center; font-size: 18px">
+</p><p style="text-align:center; font-size: 18px; margin-top: -10px;">
 <a href="https://research.google/people/107659/">Eduard Gabriel Bazavan</a>, &nbsp;
 <a href="https://scholar.google.es/citations?user=8lmzWycAAAAJ">Andrei Zanfir</a>, &nbsp;
 <a href="https://research.google/people/CristianSminchisescu/">Cristian Sminchisescu</a>
@@ -119,7 +119,7 @@ We show that our S3F model surpasses the previous state-of-the-art on various ta
 <br />
 <br />
 
-<h3>How does LVD work?</h3>
+<h3>How do Structured 3D Features work?</h3>
 
 <br />
 <img src="s3f_method.png" style="max-width:100%;">
@@ -127,7 +127,10 @@ We show that our S3F model surpasses the previous state-of-the-art on various ta
 <p>
 
 </p><p>
-In this paper we introduce 3D Structure Features (S3F), a flexible extension to image features, specifically designed to tackle the previously discussed challenges and to provide more flexibility during and after digitization. S3F store local features on ordered sets of points around the body surface, taking advantage of the geometric body prior. As body models do not usually represent hair or loose clothing, it is difficult to recover accurate body parameters for images inthe-wild. To this end, instead of relying too much on the geometric body prior, our model freely moves 3D body points independently to cover areas that are not well represented by the prior. This process results in our novel S3Fs, and is trained without explicit supervision only using reconstruction losses as signals. Another limitation of prior work is its dependence on 3D scans. We alleviate this dependence by following a mixed strategy: we combine a small collection of 3D scans, typically the only training data considered in previous work, with large-scale monocular inthe-wild image collections. We show that by guiding the training process with a small set of 3D synthetic scans, the method can efficiently learn features that are only available for the scans (e.g. albedo), while self-supervision on real images allow the method to generalize better to diverse appearances, clothing types and challenging body poses.
+In this paper we introduce 3D Structure Features (S3F), a flexible extension to image features (e.g. pixel-aligned), specifically designed to tackle the task of 3D human reconstruction and provide more flexibility during and after digitization. S3F store local features on ordered sets of points around the body surface, taking advantage of the geometric body prior. As body models do not usually represent hair or loose clothing, it is difficult to recover accurate body parameters for images inthe-wild. To this end, instead of relying too much on the geometric body prior, our model freely moves 3D body points independently to cover areas that are not well represented by the prior. This process results in our novel S3Fs, and is trained without explicit supervision only using reconstruction losses as signals.
+</p>
+<p>
+Given an input point, we aggregate representations from the set of points and their features using a transformer architecture, and obtain per-point signed distance and albedo color. Finally, we can relight the reconstruction using the predicted albedo and an illumination code. We assume perspective projection to obtain more natural reconstructions, with correct proportions.
 </p>
 
 <br />
