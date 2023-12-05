@@ -106,6 +106,7 @@
 <br />
 
 <h2>Abstract</h2>
+<hr>
 
 <br />
 
@@ -121,28 +122,29 @@ We evaluate VLOGGER on three different benchmarks and show that the proposed mod
 <br />
 
 <h2>How does VLOGGER work?</h2>
+<hr>
 
 <br />
 <img src="images/vlogger_method.png" style="max-width:100%;">
 
 <p>
-
+Our goal is to generate a photorealistic video of variable length depicting a target human talking, including head and gestures. Our framework, which we call VLOGGER, is a two-stage pipeline based on stochastic diffusion models to model the one-tomany mapping from speech to video. The first network takes as input an audio waveform to generate intermediate body motion controls, which are responsible for gaze, facial expressions and pose over the target video length. 
 </p><p>
-
-</p>
-<p>
+The second network is a temporal image-to-image translation model that extends large image diffusion models, taking the predicted body controls to generate the corresponding frames. To condition the process
+to a particular identity, the network also takes a reference image of a person.
 </p>
 
 <br />
 <br />
 
 <h2>Video-Driven Reenactment</h2>
+<hr>
 <br />
 
-<img src="images/reenactment1.gif" style="width:70%;display: block;margin:auto">
-<img src="images/reenactment2.gif" style="width:70%;display: block;margin:auto">
+<img src="images/reenactment1.gif" style="width:100%;display: block;margin:auto">
+<img src="images/reenactment2.gif" style="width:100%;display: block;margin:auto">
 <p>
-The proposed approach can take images with people in unconstrained body poses and reconstruct details such as loose clothing or hair (See the paper for more examples). Moreover, the reconstructions can be animated or relighted.
+Examples of face and full-body reenactment of humans given a single input image of the reference person and the driving motion.
 </p>
 
 <br />
@@ -158,14 +160,14 @@ The proposed approach can take images with people in unconstrained body poses an
 </video>
 
 <p>
-Our method recovers albedo and shading given each input image, and is robust to challenging poses or in-the-wild images.
+Similarly, we can reenact humans given the pose of a person in another video. In this example, we're animating humans based on the reference video in the left, in different viewpoints and scenarios where the body is visible.
 </p>
 
 <br />
 <br />
 
 <h2>Talking Face Generation</h2>
-
+<hr>
 <br />
 
 <!--
@@ -175,19 +177,18 @@ Our method recovers albedo and shading given each input image, and is robust to 
   <source src="images/generation.mp4" type="video/mp4">
 </video>
 
-
 <p>
-After predicting albedo, we relight the 3D reconstructions using different illumination codes. All reconstructions are relighted consistently.
+Several examples on talking face generation given just a single input image and a driving audio.
 </p>
 
-<h2> Diversity:</h2>
-
+<h2>Diversity</h2>
+<hr>
 <br />
 
-<img src="images/diversity.gif" style="width:100%;display: block;margin:auto; clip-path: polygon(0% 16%, 100% 16%, 100% 100%, 0% 100%);margin-top:-20px;">
+<img src="images/diversity.gif" style="width:100%;display: block;margin:auto; clip-path: polygon(0% 16%, 100% 16%, 100% 100%, 0% 100%);">
 
 <p>
-
+The model is stochastic and generates different videos for the same input audio, all of them being highly realistic and consistent with the input audio.
 </p>
 
 <br />
@@ -195,8 +196,7 @@ After predicting albedo, we relight the 3D reconstructions using different illum
 <br />
 
 <h2>Publication</h2>
-
-<br />
+<hr>
 <br />
 
 
@@ -219,6 +219,7 @@ After predicting albedo, we relight the 3D reconstructions using different illum
 <br />
 
 <h2>Citation</h2>
+<hr>
 <br />
 
 <pre class='citation'>
