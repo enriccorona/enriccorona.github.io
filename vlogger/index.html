@@ -1,0 +1,249 @@
+
+<html>
+<head>
+
+<title>Enric Corona</title>
+<!--<link href="stylesheet.css" rel="stylesheet" type="text/css">
+-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script language="JavaScript">
+  function ShowHide(divId) {
+    $(divId).slideToggle(200);
+  }
+</script>
+</head>
+
+<body data-gr-c-s-loaded="true">
+
+<div class="container">
+
+<br />
+<br />
+<h1 style="margin-left:-20px; margin-right:-20px;">VLOGGER: Multimodal Diffusion for Embodied Avatar Synthesis</h1>
+<p style="text-align:center; font-size: 18px">
+<a href="https://enriccorona.github.io/">Enric Corona</a>, &nbsp;
+<a href="https://scholar.google.es/citations?user=8lmzWycAAAAJ">Andrei Zanfir</a>, &nbsp;
+<a href="https://research.google/people/107659/">Eduard Gabriel Bazavan</a>, &nbsp;
+<a href="https://www.nikoskolot.com/">Nikos Kolotouros</a>, &nbsp;
+</p><p style="text-align:center; font-size: 18px; margin-top: -10px;">
+<a href="https://research.google/people/107250/">Thiemo Alldieck</a>,
+<a href="https://research.google/people/CristianSminchisescu/">Cristian Sminchisescu</a>
+</b> </p>
+<!--<h2 align="center">CVPR 2023</h2> -->
+
+
+<!--<p style="text-align:center; font-size: 18px">-->
+</b>
+
+<p style="text-align:center; font-size: 18px">
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="https://enriccorona.github.io/vlogger/paper.pdf">
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
+    Paper</a> &nbsp; &nbsp;
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="https://enriccorona.github.io/vlogger/">
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
+    Project</a> &nbsp; &nbsp;
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="https://youtu.be/MdQwH6k5m3k">  
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">play_circle_filled</span> &nbsp;
+    Video</a>
+<!-- https://materializecss.com/icons.html -->
+</p>
+
+<br />
+
+
+<div><video controls loop muted playsinline="true" src="videos/video_teaser1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_teaser2.mp4"></video></div>
+
+
+<br />
+<br />
+
+<h2>Abstract</h2>
+<hr>
+
+<br />
+
+<p>
+We propose VLOGGER, a method for text and audio-driven talking human video generation from a single input image of a person, which builds on the success of recent generative diffusion models. Our method consists of 1) a stochastic human-to-3d-motion diffusion model, and 2) a novel diffusion based architecture that augments text-to-image models with both temporal and spatial controls. This approach enables the generation of high quality videos of variable length, that are easily controllable through high-level representations of human faces and bodies. In contrast to previous work, our method does not require training for each person, does not rely on face detection and cropping, generates the complete image (not just the face or the lips), and considers a broad spectrum of scenarios (e.g., visible torso or diverse subject identities) that are critical to correctly synthesize humans who communicate.
+</p>
+<p>
+We evaluate VLOGGER on three different benchmarks and show that the proposed model surpasses other state-of-the-art methods in image quality, identity preservation and temporal consistency. We collect a new and diverse dataset MENTOR one order of magnitude bigger than previous ones (2,200 hours and 800,000 identities, and a test set of 120 hours and 4,000 identities) on which we train and ablate our main technical contributions. We report the performance of VLOGGER with respect to multiple diversity metrics, showing that our architectural choices benefit training a fair and unbiased model at scale.
+</p>
+
+
+<br />
+<br />
+
+<h2>How does VLOGGER work?</h2>
+<hr>
+
+<br />
+<img src="images/vlogger_method.png" style="max-width:100%;">
+
+<p>
+Our goal is to generate a photorealistic video of variable length depicting a target human talking, including head and gestures. Our framework, which we call VLOGGER, is a two-stage pipeline based on stochastic diffusion models to model the one-tomany mapping from speech to video. The first network takes as input an audio waveform to generate intermediate body motion controls, which are responsible for gaze, facial expressions and pose over the target video length. 
+</p><p>
+The second network is a temporal image-to-image translation model that extends large image diffusion models, taking the predicted body controls to generate the corresponding frames. To condition the process
+to a particular identity, the network also takes a reference image of a person.
+</p>
+
+<br />
+<br />
+
+<h2>Video-Driven Reenactment</h2>
+<hr>
+<br />
+
+
+<div><video controls loop muted playsinline="true" src="videos/video_reenactment_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_reenactment_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_reenactment_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_reenactment_1.mp4"></video></div>
+
+
+<h2>Talking Face Generation</h2>
+<hr>
+<br />
+
+<p>
+Several examples on talking face generation given just a single input image and a driving audio.
+</p>
+
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+
+
+<h2>Diversity</h2>
+<hr>
+<br />
+
+<p>
+The model is stochastic and generates different videos for the same input audio and person, all of them being highly realistic and consistent with the input audio.
+</p>
+
+<div><video controls loop muted playsinline="true" src="videos/video_diversity_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_diversity_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_diversity_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_diversity_1.mp4"></video></div>
+
+<h2>Video Translation</h2>
+<hr>
+<br />
+
+<p>
+One of the main applications of this model is on video translation. In this case, VLOGGER takes an existing video in a particular language, and edits the lip and face areas to be consistent with new audios, in other languages. See more details in the paper.
+</p>
+
+<div><video controls loop muted playsinline="true" src="videos/video_translation_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_translation_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_translation_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_translation_1.mp4"></video></div>
+
+
+
+<br />
+<br />
+<br />
+
+<h2>Publication</h2>
+<hr>
+<br />
+
+
+<div class="row"> <div class="col-md-3"><img style="width:150px;" alt src="images/vlogger_gif_web.gif"> </div><div class="col-md-9"><h4>VLOGGER: Multimodal Diffusion for Embodied Avatar Synthesis</h4><h5>Enric Corona, Andrei Zanfir, Eduard Gabriel Bazavan, Nikos Kolotouros, Thiemo Alldieck and Cristian Sminchisescu</h5><h5>in <i>arXiv</i> </h5><h5>
+<a href="https://enriccorona.github.io/vlogger/">Project Page</a>&nbsp;&nbsp;&nbsp;
+<a href="https://enriccorona.github.io/vlogger/paper.pdf">Paper</a>&nbsp;&nbsp;&nbsp;
+<!--<a href="https://arxiv.org/abs/2212.06820">Supplementary</a>&nbsp;&nbsp;&nbsp;-->
+<a href="https://youtu.be/MdQwH6k5m3k"></a>&nbsp;&nbsp;&nbsp;
+<a onclick="javascript:ShowHide('#bibtex')" href="javascript:;">Bibtex</a></h5>
+<pre class='citation' id='bibtex' style="DISPLAY: none">
+@inproceedings{corona2023vlogger,
+    Author = {Corona, Enric and Zanfir, Andrei and Gabriel Bazavan, Eduard and Kolotouros, Nikos and Alldieck, Thiemo and Sminchisescu, Cristian}
+    Title = {VLOGGER: Multimodal Diffusion for Embodied Avatar Synthesis},
+    Year = {2023},
+    booktitle = {arXiv},
+}
+</pre>
+</div></div>
+
+<br />
+
+<h2>Citation</h2>
+<hr>
+<br />
+
+<pre class='citation'>
+@inproceedings{corona2023vlogger,
+    Author = {Corona, Enric and Zanfir, Andrei and Gabriel Bazavan, Eduard and Kolotouros, Nikos and Alldieck, Thiemo and Sminchisescu, Cristian}
+    Title = {VLOGGER: Multimodal Diffusion for Embodied Avatar Synthesis},
+    Year = {2023},
+    booktitle = {arXiv},
+}
+</pre>
+</div></div>
+</body>
+</html>
+
