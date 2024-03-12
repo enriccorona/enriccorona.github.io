@@ -2,9 +2,7 @@
 <html>
 <head>
 
-<title>Enric Corona</title>
-<!--<link href="stylesheet.css" rel="stylesheet" type="text/css">
--->
+<title>VLOGGER</title>
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,6 +21,7 @@
 </script>
 </head>
 
+
 <body data-gr-c-s-loaded="true">
 
 <div class="container">
@@ -39,17 +38,13 @@
 <a href="https://research.google/people/107250/">Thiemo Alldieck</a>,
 <a href="https://research.google/people/CristianSminchisescu/">Cristian Sminchisescu</a>
 </b> </p>
-<!--<h2 align="center">CVPR 2023</h2> -->
 
-
-<!--<p style="text-align:center; font-size: 18px">-->
 </b>
 
 <p style="text-align:center; font-size: 18px">
-<a style="position: relative;
-    text-align: center;
+<a style="text-align: center;
     display: inline-block;
-    margin: 14px;
+    margin: 8px;
     padding: 12px 12px 12px 12px;
     border-width: 0;
     outline: none;
@@ -59,13 +54,12 @@
     font-size: 20px;
     width: 130px;
     font-weight: 600;" 
-    href="https://enriccorona.github.io/vlogger/paper.pdf">
+    href="">
     <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
-    Paper</a> &nbsp; &nbsp;
-<a style="position: relative;
-    text-align: center;
+    Paper</a> &nbsp;
+<a style="text-align: center;
     display: inline-block;
-    margin: 14px;
+    margin: 8px;
     padding: 12px 12px 12px 12px;
     border-width: 0;
     outline: none;
@@ -75,13 +69,12 @@
     font-size: 20px;
     width: 130px;
     font-weight: 600;" 
-    href="https://enriccorona.github.io/vlogger/">
+    href="">
     <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
-    Project</a> &nbsp; &nbsp;
-<a style="position: relative;
-    text-align: center;
+    Supp</a> &nbsp;
+<a style="text-align: center;
     display: inline-block;
-    margin: 14px;
+    margin: 8px;
     padding: 12px 12px 12px 12px;
     border-width: 0;
     outline: none;
@@ -91,24 +84,44 @@
     font-size: 20px;
     width: 130px;
     font-weight: 600;" 
-    href="https://youtu.be/MdQwH6k5m3k">  
+    href="">
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">bookmarks</span> &nbsp;
+    Project</a> &nbsp;
+<a style="text-align: center;
+    display: inline-block;
+    margin: 8px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="">
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">downloading</span> &nbsp;
+    Dataset</a> &nbsp;
+<a style="text-align: center;
+    display: inline-block;
+    margin: 8px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="">  
     <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">play_circle_filled</span> &nbsp;
     Video</a>
 <!-- https://materializecss.com/icons.html -->
 </p>
 
-<br />
 
-
-<div><video controls loop muted playsinline="true" src="videos/video_teaser1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_teaser2.mp4"></video></div>
-
-
-<br />
-<br />
-
-<h2>Abstract</h2>
-<hr>
+<h3>Abstract</h3>
 
 <br />
 
@@ -120,36 +133,29 @@ We evaluate VLOGGER on three different benchmarks and show that the proposed mod
 </p>
 
 
+
 <br />
 <br />
 
+<div style='text-align: center'>
 <h2>How does VLOGGER work?</h2>
 <hr>
 
 <br />
-<img src="images/vlogger_method.png" style="max-width:100%;">
+<img src="images/method.png" style="vertical-align: top; width: 100%; max-width:1400px;">
 
 <p>
-Our goal is to generate a photorealistic video of variable length depicting a target human talking, including head and gestures. Our framework, which we call VLOGGER, is a two-stage pipeline based on stochastic diffusion models to model the one-tomany mapping from speech to video. The first network takes as input an audio waveform to generate intermediate body motion controls, which are responsible for gaze, facial expressions and pose over the target video length. 
+Our goal is to generate a photorealistic video of variable length depicting a target human talking, including head and gestures. Our framework, which we call VLOGGER, is a two-stage pipeline based on stochastic diffusion models to model the one-to-many mapping from speech to video. The first network takes as input an audio waveform to generate intermediate body motion controls, which are responsible for gaze, facial expressions and pose over the target video length. 
 </p><p>
-The second network is a temporal image-to-image translation model that extends large image diffusion models, taking the predicted body controls to generate the corresponding frames. To condition the process
-to a particular identity, the network also takes a reference image of a person.
+The second network is a temporal image-to-image translation model that extends large image diffusion models, taking the predicted body controls to generate the corresponding frames. To condition the process to a particular identity, the network also takes a reference image of a person.
 </p>
 
 <br />
 <br />
 
-<h2>Video-Driven Reenactment</h2>
-<hr>
-<br />
+</div>
 
-
-<div><video controls loop muted playsinline="true" src="videos/video_reenactment_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_reenactment_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_reenactment_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_reenactment_1.mp4"></video></div>
-
-
+<div style='text-align:center'>
 <h2>Talking Face Generation</h2>
 <hr>
 <br />
@@ -158,56 +164,380 @@ to a particular identity, the network also takes a reference image of a person.
 Several examples on talking face generation given just a single input image and a driving audio.
 </p>
 
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_talking_1.mp4"></video></div>
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_1.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_1.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_2.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_2.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_3.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_3.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_4.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_4.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_5.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_5.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_6.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_6.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_7.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_7.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_8.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_8.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_9.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_9.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_10.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_10.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_11.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_11.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_12.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_12.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_13.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_13.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_14.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_14.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_15.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_15.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_16.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_16.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_17.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_17.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_18.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_18.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_19.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_19.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_20.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_20.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_21.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_21.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_22.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_22.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_23.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_23.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_24.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_24.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_25.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_25.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_26.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_26.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_27.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_27.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_28.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_28.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_29.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_29.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
+
+<div style="display: inline-block;text-align: center; margin:5px;">
+<figure style='display: inline-block'>
+<img src="images/input_image_30.png" style="vertical-align: top;height:240;">
+<figcaption><b>Input Image</b></figcaption>
+</figure>
+<figure style='display: inline-block'>
+<video controls loop muted autoplay playsinline="true" src="videos/video_30.mp4" style='height:240'></video>
+<figcaption><b>Generated Video</b></figcaption>
+</figure>
+</div>
 
 
+</div>
+<div style='text-align: center'>
 <h2>Diversity</h2>
 <hr>
 <br />
 
 <p>
-The model is stochastic and generates different videos for the same input audio and person, all of them being highly realistic and consistent with the input audio.
+The model generates a diverse distribution of videos of the original subject giving the target speech. The right-most part shows pixel diversity as obtained from 80 generated videos. The person moves head and body significantly (red means higher diversity in pixel color) while the background is kept fixed, and despite the diversity all videos look realistic.
 </p>
 
-<div><video controls loop muted playsinline="true" src="videos/video_diversity_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_diversity_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_diversity_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_diversity_1.mp4"></video></div>
+<div width="100%"><video controls loop muted autoplay playsinline="true" src="videos/video_diversity_1.mp4" style="width:100%; max-width:1600px;"></video></div>
+<div width="100%"><video controls loop muted autoplay playsinline="true" src="videos/video_diversity_2.mp4" style="width:100%; max-width:1600px;"></video></div>
+<div width="100%"><video controls loop muted autoplay playsinline="true" src="videos/video_diversity_3.mp4" style="width:100%; max-width:1600px;"></video></div>
 
+</div>
+<div style='text-align: center'>
+<h2>Video Editing</h2>
+<hr>
+<br />
+
+<p>
+One of the main applications of this model is on editing existing videos. In this case, VLOGGER takes an video and changes the expression of the subject by e.g. closing the mouth or the eyes. In practice, we leverage the flexibility of the diffusion model by inpainting image parts that should change, making the video edits consistent with the original unchanged pixels.
+</p>
+
+<div><video controls loop muted playsinline="true" src="videos/video_editing.mp4" style="width:100%; max-width:1200px;"></video></div>
+
+</div>
+<div style='text-align: center'>
 <h2>Video Translation</h2>
 <hr>
 <br />
 
 <p>
-One of the main applications of this model is on video translation. In this case, VLOGGER takes an existing video in a particular language, and edits the lip and face areas to be consistent with new audios, in other languages. See more details in the paper.
+One of the main applications of this model is on video translation. In this case, VLOGGER takes an existing video in a particular language, and edits the lip and face areas to be consistent with new audios, e.g. in Spanish.
 </p>
 
-<div><video controls loop muted playsinline="true" src="videos/video_translation_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_translation_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_translation_1.mp4"></video></div>
-<div><video controls loop muted playsinline="true" src="videos/video_translation_1.mp4"></video></div>
+<div><video controls loop muted playsinline="true" src="videos/video_translation.mp4" style="width:100%; max-width:640px;"></video></div>
 
-
+</div>
 
 <br />
 <br />
 <br />
-
 <h2>Publication</h2>
 <hr>
 <br />
@@ -241,9 +571,7 @@ One of the main applications of this model is on video translation. In this case
     Title = {VLOGGER: Multimodal Diffusion for Embodied Avatar Synthesis},
     Year = {2023},
     booktitle = {arXiv},
-}
-</pre>
-</div></div>
+
+
 </body>
 </html>
-

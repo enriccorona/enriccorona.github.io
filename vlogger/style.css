@@ -101,10 +101,15 @@ p {
   margin-bottom: 0px;
 }
 
-.icons{
-    float: left;
-    margin-top: 0px;
-    margin-bottom: 20px;
+.results {
+  float: left;
+  clear: both;
+}
+
+.icons {
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 
 .venue {
@@ -146,7 +151,7 @@ p {
 }
 .container {
   margin-top: 10px;
-  width:60%;
+  width:70%;
 }
 #footer {
   margin-bottom: 100px;
