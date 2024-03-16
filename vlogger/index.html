@@ -120,13 +120,6 @@
 <!-- https://materializecss.com/icons.html -->
 </p>
 
-
-<div style="text-align: center; width:100%; width-max:720;">
-<video controls loop muted autoplay playsinline="true" src="videos/sample_1.mp4" style='width: auto;max-width:240px;margin-right:20px;'></video>
-<video controls loop muted autoplay playsinline="true" src="videos/sample_2.mp4" style='width: auto;max-width:240px;margin-right:20px;'></video>
-<video controls loop muted autoplay playsinline="true" src="videos/sample_3.mp4" style='width: auto;max-width:240px;margin-right:20px;'></video>
-</div>
-
 <br />
 
 <h3>Abstract</h3>
@@ -164,8 +157,54 @@ The second network is a temporal image-to-image translation model that extends l
 </div>
 <br />
 
+
+
+<div style="width:100%;-ms-text-justify: distribute-all-lines; text-justify: distribute-all-lines;text-align: justify; margin-left: auto; margin-right: auto;">
+<video controls loop muted autoplay playsinline="true" src="videos/reenactment_1.mp4" style="display-inline:block;vertical-align:top;max-width:240px;"></video>
+<video controls loop muted autoplay playsinline="true" src="videos/reenactment_2.mp4" style="display-inline:block;vertical-align:top;max-width:240px;"></video>
+<video controls loop muted autoplay playsinline="true" src="videos/reenactment_3.mp4" style="display-inline:block;vertical-align:top;max-width:240px;"></video>
+<video controls loop muted autoplay playsinline="true" src="videos/reenactment_4.mp4" style="display-inline:block;vertical-align:top;max-width:240px;"></video>
+<video controls loop muted autoplay playsinline="true" src="videos/reenactment_5.mp4" style="display-inline:block;vertical-align:top;max-width:240px;"></video>
+</div>
+
+
+
+<div style='text-align: center'>
+<h1>Diversity</h1>
+<hr>
+
+<p>
+Our model generates a diverse distribution of videos of the original subject, with a significant amount of motion and realism. The right-most part shows pixel diversity as obtained from 80 generated videos. The person moves head and body significantly (red means higher diversity in pixel color) while the background is kept fixed, and despite the diversity all videos look realistic.
+</p>
+<p>
+Next, we show an overview of applications and results.
+</p>
+
+<div width="100%"><video controls loop muted autoplay playsinline="true" src="videos/video_diversity_1.mp4" style="width:100%; max-width:1600px;"></video></div>
+<div width="100%"><video controls loop muted autoplay playsinline="true" src="videos/video_diversity_2.mp4" style="width:100%; max-width:1600px;"></video></div>
+<div width="100%"><video controls loop muted autoplay playsinline="true" src="videos/video_diversity_3.mp4" style="width:100%; max-width:1600px;"></video></div>
+</div>
+<br />
+<br />
+
+
+<div style='text-align: center'>
+<h1>Video Editing</h1>
+<hr>
+
+<p>
+One of the main applications of our model is on editing existing videos. In this case, VLOGGER takes an video and changes the expression of the subject by e.g. closing the mouth or the eyes. In practice, we leverage the flexibility of the diffusion model by inpainting image parts that should change, making the video edits consistent with the original unchanged pixels.
+</p>
+
+<div><video controls loop muted playsinline="true" src="videos/video_editing.mp4" style="width:100%; max-width:1200px;"></video></div>
+</div>
+<br />
+<br />
+
+
+
 <div style='text-align:center'>
-<h1>Talking Face Generation</h1>
+<h1>Generation of Moving and Talking People</h1>
 <hr>
 
 <p>
@@ -507,32 +546,6 @@ Several examples on talking face generation given just a single input image and 
 <br />
 <br />
 
-<div style='text-align: center'>
-<h1>Diversity</h1>
-<hr>
-
-<p>
-The model generates a diverse distribution of videos of the original subject giving the target speech. The right-most part shows pixel diversity as obtained from 80 generated videos. The person moves head and body significantly (red means higher diversity in pixel color) while the background is kept fixed, and despite the diversity all videos look realistic.
-</p>
-
-<div width="100%"><video controls loop muted autoplay playsinline="true" src="videos/video_diversity_1.mp4" style="width:100%; max-width:1600px;"></video></div>
-<div width="100%"><video controls loop muted autoplay playsinline="true" src="videos/video_diversity_2.mp4" style="width:100%; max-width:1600px;"></video></div>
-<div width="100%"><video controls loop muted autoplay playsinline="true" src="videos/video_diversity_3.mp4" style="width:100%; max-width:1600px;"></video></div>
-</div>
-<br />
-<br />
-<div style='text-align: center'>
-<h1>Video Editing</h1>
-<hr>
-
-<p>
-One of the main applications of this model is on editing existing videos. In this case, VLOGGER takes an video and changes the expression of the subject by e.g. closing the mouth or the eyes. In practice, we leverage the flexibility of the diffusion model by inpainting image parts that should change, making the video edits consistent with the original unchanged pixels.
-</p>
-
-<div><video controls loop muted playsinline="true" src="videos/video_editing.mp4" style="width:100%; max-width:1200px;"></video></div>
-</div>
-<br />
-<br />
 <div style='text-align: center'>
 <h1>Video Translation</h1>
 <hr>
